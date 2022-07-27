@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rincyapp
+  labels:
+    app: rincyapp
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: rincyapp
+  template:
+    metadata:
+      labels:
+        app: rincyapp
+    spec:
+      containers:
+      - name: rincyapp
+        image: rincy123/rincyapp:v1
+        ports:
+        - name: http
+          containerPort: 5000

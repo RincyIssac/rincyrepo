@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rincyapp-az
+  labels:
+    app: rincyapp-az
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: rincyapp-az
+  template:
+    metadata:
+      labels:
+        app: rincyapp-az
+    spec:
+      imagePullSecrets:
+      - name: acr-secret 
+      containers:
+      - name: rincyapp-az
+        image:  rincy123.azurecr.io/rincyapp:v1
+        ports:
+        - name: http
+          containerPort: 5000
