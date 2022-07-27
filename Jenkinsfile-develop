@@ -37,7 +37,7 @@ pipeline {
     }
     post {
         always {
-            echo 'post do this always...'
+            echo 'post do this always..'
         }
         success{
             echo 'post do this when success...'
