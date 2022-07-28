@@ -34,6 +34,18 @@ pipeline {
                 //sh 'docker build -t rincy123.azurecr.io/rincyapp:v1 Dockerfile .'
             }
         } 
+
+        stage('Publish image') {
+            steps {
+                echo 'pushing image..'
+                withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ]) {
+                    sh 'docker push rincyapp:v2'
+                }
+                /*withDockerRegistry([ credentialsId: "acr-credentials", url: "risunmyinsuranceapp.azurecr.io" ]) {
+                    sh 'docker push risunmyinsuranceapp.azurecr.io/myinsuranceapp:v3'
+                }*/
+            }
+        }
     }
     post {
         always {
