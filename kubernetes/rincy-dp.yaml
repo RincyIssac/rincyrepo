@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: rincyapp
-        image: rincy123/rincyapp:v1
+        image: rincyissac/rincyapp:v3
         ports:
         - name: http
           containerPort: 5000
