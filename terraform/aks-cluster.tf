@@ -5,7 +5,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "default" {
-  name     = "${myins.prefix.id}-rg"
+  name     = "${random_pet.prefix.id}-rg"
   location = "eastasia"
 
   tags = {
@@ -14,7 +14,7 @@ resource "azurerm_resource_group" "default" {
 }
 
 resource "azurerm_kubernetes_cluster" "default" {
-  name                = "${myins.prefix.id}-aks"
+  name                = "${random_pet.prefix.id}-aks"
   location            = azurerm_resource_group.default.location
   resource_group_name = azurerm_resource_group.default.name
   dns_prefix          = "${random_pet.prefix.id}-k8s"
