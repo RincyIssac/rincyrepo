@@ -39,7 +39,7 @@ pipeline {
             steps {
                 echo 'pushing image..'
                 withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ]) {
-                    sh 'docker push rincyapp:v2'
+                    sh 'docker push rincyissac/rincyapp:v2'
                 }
                 /*withDockerRegistry([ credentialsId: "acr-credentials", url: "risunmyinsuranceapp.azurecr.io" ]) {
                     sh 'docker push risunmyinsuranceapp.azurecr.io/myinsuranceapp:v3'
