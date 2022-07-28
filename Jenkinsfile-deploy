@@ -53,7 +53,7 @@ pipeline {
                     withKubeConfig([credentialsId: 'k8-credentials']) {
                     sh 'kubectl apply -f kubernetes/rincy-dp.yaml'
                     sh 'kubectl apply -f kubernetes/rincy-sv.yaml'
-                    sh 'kubectl port-forward service/myinsuranceapp 5000:5000 &'
+                    sh 'kubectl port-forward service/rincyapp 5000:5000 &'
                     sleep 5 // give 5 secs to stablish the port forward
                 }
             }
