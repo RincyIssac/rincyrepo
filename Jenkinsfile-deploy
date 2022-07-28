@@ -48,9 +48,9 @@ pipeline {
         }
         stage('Apply Kubernetes ') {
             steps {
-                
-                //withKubeConfig([credentialsId: 'k8-credentials',serverUrl:'emerging-fowl-k8s-f8325088.hcp.eastasia.azmk8s.io']) {
-                    withKubeConfig([credentialsId: 'k8-credentials']) {
+                echo 'Apply Kubernetes..'
+                withKubeConfig([credentialsId: 'k8-credentials',serverUrl:'emerging-fowl-k8s-f8325088.hcp.eastasia.azmk8s.io']) {
+                    //withKubeConfig([credentialsId: 'k8-credentials']) {
                     sh 'kubectl apply -f kubernetes/rincy-dp.yaml'
                     sh 'kubectl apply -f kubernetes/rincy-sv.yaml'
                     sh 'kubectl port-forward service/rincyapp-service 5000:5000 &'
