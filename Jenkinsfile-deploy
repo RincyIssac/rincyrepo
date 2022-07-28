@@ -49,7 +49,7 @@ pipeline {
         stage('Apply Kubernetes ') {
             steps {
                 
-                //withKubeConfig([credentialsId: 'k8-credentials',serverUrl:'https://joint-macaw-k8s-307b998b.hcp.eastasia.azmk8s.io']) {
+                //withKubeConfig([credentialsId: 'k8-credentials',serverUrl:'emerging-fowl-k8s-f8325088.hcp.eastasia.azmk8s.io']) {
                     withKubeConfig([credentialsId: 'k8-credentials']) {
                     sh 'kubectl apply -f kubernetes/rincy-dp.yaml'
                     sh 'kubectl apply -f kubernetes/rincy-sv.yaml'
